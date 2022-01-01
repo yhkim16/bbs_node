@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <p>{{body}}</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>글번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for item in articles %}
+                <tr>
+                    <td> {{ item.id }}</td>
+                    <td><a href="/doc/{{ item.id }}"> {{ item.title }}</a></td>
+                    <td> {{ item.author }}</td>
+                </tr>
+                {% else %}
+                </tr>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button onclick="location.href='/write.html'">글 쓰기</button>
+    </body>
+</html>
